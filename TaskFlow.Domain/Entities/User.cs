@@ -13,7 +13,7 @@ namespace TaskFlow.Domain.Entities
         public string Role { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public ICollection<TaskItem> Tasks { get; private set; }
-    = new List<TaskItem>();
+            = new List<TaskItem>();
 
         private User()
         {
