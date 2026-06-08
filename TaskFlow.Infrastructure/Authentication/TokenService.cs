@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using TaskFlow.Domain.Entities;
+using TaskFlow.Domain.Interfaces;
 
 namespace TaskFlow.Infrastructure.Authentication
 {

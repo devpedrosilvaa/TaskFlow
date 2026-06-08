@@ -6,7 +6,7 @@ using TaskFlow.Domain.Entities;
 using TaskFlow.Domain.Interfaces;
 using TaskFlow.Infrastructure.Persistence;
 
-namespace TaskFlow.Infrastructure.Repositorios
+namespace TaskFlow.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
