@@ -11,13 +11,19 @@ namespace TaskFlow.API.Controllers
         private readonly RegisterUserService _registerService;
 
         private readonly LoginService _loginService;
+        private readonly LogoutService _logoutService;
+        private readonly RefreshTokenService _refreshTokenService;
 
         public AuthController(
             RegisterUserService registerService,
-            LoginService loginService)
+            LoginService loginService,
+            LogoutService logoutService,
+            RefreshTokenService refreshTokenService)
         {
             _registerService = registerService;
             _loginService = loginService;
+            _logoutService = logoutService;
+            _refreshTokenService = refreshTokenService;
         }
 
         [HttpPost("register")]
@@ -40,8 +46,32 @@ namespace TaskFlow.API.Controllers
 
             return Ok(new
             {
-                accessToken = token
+                LoginResponse = token
             });
+        }
+
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh(
+            RefreshTokenRequest request)
+        {
+            var token =
+                await _refreshTokenService.RefreshTokenAsync(
+                    request);
+
+            return Ok(new
+            {
+                AccessToken = token
+            });
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout(
+            RefreshTokenRequest request)
+        {
+            await _logoutService.LogoutAsync(
+                    request);
+
+            return Ok();
         }
     }
 }

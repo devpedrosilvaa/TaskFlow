@@ -105,6 +105,19 @@ builder.Services.AddScoped<
 builder.Services.AddScoped<
     TaskService>();
 
+builder.Services.AddScoped<
+    IRefreshTokenRepository,
+    RefreshTokenRepository>();
+
+builder.Services.AddScoped<
+    RefreshTokenGenerator>();
+
+builder.Services.AddScoped<
+    RefreshTokenService>();
+
+builder.Services.AddScoped<
+    LogoutService>();
+
 var app = builder.Build();
 
 // Swagger

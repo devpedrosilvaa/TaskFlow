@@ -14,6 +14,11 @@ namespace TaskFlow.Domain.Entities
         public DateTime CreatedAt { get; private set; }
         public ICollection<TaskItem> Tasks { get; private set; }
             = new List<TaskItem>();
+        public ICollection<RefreshToken> RefreshTokens
+        {
+            get;
+            private set;
+        } = new List<RefreshToken>();
 
         private User()
         {
